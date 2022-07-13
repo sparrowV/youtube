@@ -20,7 +20,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.Assert.assertEquals;
 import static org.testcontainers.shaded.org.awaitility.Awaitility.await;
 
-public class KafkaTestContainer {
+public class KafkaTestContainerTest {
 
     @ClassRule
     public static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"));
@@ -30,7 +30,6 @@ public class KafkaTestContainer {
     public void simpleTest() throws InterruptedException {
         //creating producer and consumers
         TestProducer producer = createProducer();
-        producer.send("Hello Testcontainers");
         TestConsumer consumer = createConsumer();
 
         //starting consumer
